@@ -1,13 +1,11 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request
 from flask_cors import CORS
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores.faiss import FAISS
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain import OpenAI, VectorDBQA
-
-#@title Environment Vars
 import os
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 
 app = Flask(__name__)
 CORS(app)
@@ -20,18 +18,24 @@ texts = text_splitter.split_text(information)
 embeddings = OpenAIEmbeddings()
 vectorstore = FAISS.from_texts(texts, embeddings)
 qa = VectorDBQA.from_chain_type(llm=OpenAI(), chain_type="stuff", vectorstore=vectorstore)
+# answer = ""
 
-answer = ""
-@app.route("/", methods = ['POST'])
-def handle_request():
-    try:
-        query = request.get_json.get('text')
-        if query:
-            answer = qa.run(query)
-            return jsonify({"response": answer})
-        return jsonify({"error": "no question"})
+@app.route("/", methods = ['POST', 'OPTIONS'])
+def main():
+    try:    
+        response_headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST',
+            'Access-Control-Allow-Headers': 'Content-Type',
+        }
+        query = request.form.get('text')
+        print("Question: ===", query)
+        answer = qa.run(query)
+        response_headers['Access-Control-Allow-Origin'] = "*"
+        return {"response": answer}
     except Exception as e:
-        return jsonify({"error": str(e)}, 500)
+        print("ERROR:  == ", str(e))
+        return {"error": str(e)}, 500
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

@@ -9,7 +9,7 @@ class MessageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    //final textTheme = Theme.of(context).textTheme;
     return Align(
       alignment: fromAi ? Alignment.centerLeft : Alignment.centerRight,
       child: Column(
@@ -30,20 +30,20 @@ class MessageWidget extends StatelessWidget {
           ),
           if(fromAi)...[
             SizedBox(height: 12),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * .8,
-              child: Row(
-                children: [
-                  Icon(Icons.thumb_up_alt_outlined, size: 22, color: Colors.grey,),
-                  SizedBox(width: 10,),
-                  Icon(Icons.thumb_down_alt_outlined, size: 22, color: Colors.grey,),
-                  Spacer(),
-                  Icon(Icons.copy_outlined, size: 16, color: Colors.grey,),
-                  SizedBox(width: 10,),
-                  Text('copy', style: textTheme.bodyMedium?.copyWith(color: Colors.grey),)
-                ],
-              ),
-            )
+            // SizedBox(
+            //   width: MediaQuery.of(context).size.width * .8,
+            //   child: Row(
+            //     children: [
+            //       Icon(Icons.thumb_up_alt_outlined, size: 22, color: Colors.grey,),
+            //       SizedBox(width: 10,),
+            //       Icon(Icons.thumb_down_alt_outlined, size: 22, color: Colors.grey,),
+            //       Spacer(),
+            //       Icon(Icons.copy_outlined, size: 16, color: Colors.grey,),
+            //       SizedBox(width: 10,),
+            //       Text('copy', style: textTheme.bodyMedium?.copyWith(color: Colors.grey),)
+            //     ],
+            //   ),
+            // )
           ]
         ],
       ),
