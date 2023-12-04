@@ -5,7 +5,7 @@ from langchain.vectorstores.faiss import FAISS
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain import OpenAI, VectorDBQA
 import os
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 
 app = Flask(__name__)
 CORS(app)

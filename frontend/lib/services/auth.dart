@@ -46,4 +46,34 @@ class AuthService{
     }
   }
 
-}
+  Future<Users?> signInWithEmailPassword(String email, String password) async {
+    try {
+      UserCredential result = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      User? user = result.user;
+      return user != null ? Users(uid: user.uid) : null;
+    } catch (e) {
+      //print(e.toString());
+      return null;
+      }
+    }
+
+  Future<Users?> registerWithEmailPassword(String email, String password, String firstName) async {
+    try {
+      UserCredential result = await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      User? user = result.user;
+      if (user != null) {
+        //await _auth.setCustomUserClaims(user.uid, {'firstName': firstName});
+        return Users(uid: user.uid);
+      }
+      return null;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }}

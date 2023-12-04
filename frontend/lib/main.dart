@@ -4,6 +4,7 @@ import 'package:justice_bridge/models/user.dart';
 import 'package:justice_bridge/pages/abuse.dart';
 import 'package:justice_bridge/pages/home.dart';
 import 'package:justice_bridge/pages/bot.dart';
+import 'package:justice_bridge/pages/register.dart';
 import 'package:justice_bridge/pages/lawyer.dart';
 import 'package:justice_bridge/pages/login.dart';
 import 'package:justice_bridge/pages/rehab.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
       initialData: null,
       value: AuthService().user,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         initialRoute: '/wrapper',
         routes: {
           '/':(context)=>const Login(),
@@ -38,6 +40,7 @@ class MyApp extends StatelessWidget {
           '/status': (context)=> const Status(),
           '/lawyer': (context)=> const Lawyer(),
           '/bot': (context)=>const Bot(),
+          '/register': (context)=>const Register(),
           '/rehab': (context)=> const Rehab(),
           '/abuse': (context)=> const Abuse(),
         },

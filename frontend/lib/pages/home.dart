@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue[900],
-        title: const Text('Justice bridge'),
+        title: const Text('Justice bridge', style: TextStyle(color: Colors.white),),
         centerTitle: true,
         elevation: 0,
         leading: PopupMenuButton<String>(
@@ -77,7 +77,7 @@ class _HomeState extends State<Home> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0),
+          padding: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -89,12 +89,12 @@ class _HomeState extends State<Home> {
               ),
               Divider(
                 color: Colors.grey[800],
-                height: 60.0,
+                height: 30.0,
               ),
               Text(
                 'NAME',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 15,
                   color: Colors.grey[900],
                   letterSpacing: 2.0,
                   fontWeight: FontWeight.bold,
@@ -105,7 +105,7 @@ class _HomeState extends State<Home> {
                 'Inmate 1',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 28.0,
+                  fontSize: 20.0,
                   letterSpacing: 2.0,
                 ),
               ),
@@ -113,7 +113,7 @@ class _HomeState extends State<Home> {
               Text(
                 'HOMETOWN',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 15,
                   color: Colors.grey[900],
                   letterSpacing: 2.0,
                   fontWeight: FontWeight.bold,
@@ -124,7 +124,7 @@ class _HomeState extends State<Home> {
                 'Tamilnadu , India',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 28.0,
+                  fontSize: 20.0,
                   letterSpacing: 2.0,
                 ),
               ),
@@ -132,7 +132,7 @@ class _HomeState extends State<Home> {
               Text(
                 'Nature of crime',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 15,
                   color: Colors.grey[900],
                   letterSpacing: 2.0,
                   fontWeight: FontWeight.bold,
@@ -143,7 +143,7 @@ class _HomeState extends State<Home> {
                 'criminal',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 28.0,
+                  fontSize: 20.0,
                   letterSpacing: 2.0,
                 ),
               ),
@@ -159,7 +159,7 @@ class _HomeState extends State<Home> {
                     'inmate1@thenetninja.co.uk',
                     style: TextStyle(
                       color: Colors.grey[900],
-                      fontSize: 18.0,
+                      fontSize: 20.0,
                       letterSpacing: 1.0,
                     ),
                   )

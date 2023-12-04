@@ -55,7 +55,7 @@ class _AbuseState extends State<Abuse> {
               },
               child: const Text('Submit'),
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 20),
             const Text(
               'Know Your Rights',
               style: TextStyle(

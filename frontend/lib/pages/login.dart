@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 import '../services/auth.dart';
+import 'package:justice_bridge/models/user.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -11,6 +12,8 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   final AuthService _auth =AuthService();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,24 +49,54 @@ class _LoginState extends State<Login> {
                 ),
               ),
               const SizedBox(height: 30.0),
+
               ElevatedButton(
                 // onPressed: () {
-                //   // Implement sign-in logic here
-                //   Navigator.pushReplacementNamed(context, '/home');
+                //     // Implement sign-in logic here
+                //     Navigator.pushReplacementNamed(context, '/home');
+                //   },
+                // onPressed: () async{
+                //   dynamic result = await _auth.signInAnon();
+                //   if(result==null)
+                //   {
+                //     print("error Signing in");
+                //   }
+                //   else{
+                //     print('signed in');
+                //     print(result.uid);
+                //   }
                 // },
-                onPressed: () async{
-                  dynamic result = await _auth.signInAnon();
-                  if(result==null)
-                  {
-                    print("error Signing in");
+                onPressed: () async {
+                  String email = _emailController.text.trim();
+                  String password = _passwordController.text.trim();
+                
+                  if(email.isEmpty) {
+                    dynamic result = await _auth.signInAnon();
+                    if(result==null)
+                    {
+                      print("error Signing in"); 
+                    }
+                    else{
+                      print('signed in');
+                      print(result.uid);
+                    }
                   }
                   else{
-                    print('signed in');
-                    print(result.uid);
+                    Users? result = await _auth.signInWithEmailPassword(
+                        email, password);
+                    if (result == null) {
+                      print('Error signing in');
+                    } else {
+                      Navigator.pushReplacementNamed(context, '/home');
+                      print('Signed in: ${result.uid}');
+                      
+                    }
                   }
                 },
                 child: const Text('Sign In'),
               ),
+              const SizedBox(height: 20.0),
+              ElevatedButton(onPressed: (){ Navigator.pushReplacementNamed(context, '/register');}, child: const Text('Register'))
             ],
           ),
         ),
