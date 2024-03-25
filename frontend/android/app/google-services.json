@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "828329617248",
+    "project_id": "justicebridge-ca54a",
+    "storage_bucket": "justicebridge-ca54a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828329617248:android:e69e4a3a0dece148f96005",
+        "android_client_info": {
+          "package_name": "com.example.justice_bridge"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAct8nudJwTxJb05Dj7gh1zTVc_WwmsTEw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
